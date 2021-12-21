@@ -1,50 +1,29 @@
 import React from 'react';
-import {App} from './App';
+import {App} from './Controlers/App'
 
 
-
-const Movies = ({listOfMovies}) => {
-    
-    return(
-        <div id='Movies'>
-             {lMovies.map((movie,i) => {
-             return(
-                 <div key={i} className='col-sm-4'>
-                    <div
-                        key={i}
-                        className='card'
-                        style={
-                          {margin:'18px',
-                           width:'20rem',
-                           border:'1px solid black'
-                      }
-                    }
-                       >
-                        <img
-                         style={{ padding: '6px'}}
-                         width={'80%'}
-                     />
              
-                        <h6 className="card-title">Title: {Movies.title}</h6>
-                        <p className="card-text">Genre: {Movies.genre}</p>
-                        <p className="card-text">ReleaseDate: {Movies.releaseDate}</p>
-                        <p className="card-text">Plot: {Movies.plot}</p>
-                        <p>ImdbLink: {Movies.imdbLink}</p>
-                        <p>ImgUrl: {Movies.imgUrl}</p>
+export const Movies = ({listOfMovies}) =>{
+  console.log(listOfMovies)
+  return(
+      <div id='movies'>
+      <h2>Movie List</h2>
+      {listOfMovies.map((movie,i) =>{
+          return(
+              <div key={i}>
+                  <p><span>Movie Title: </span>{movie.title}</p>
+                  <p><span>Release Date:</span>{movie.releaseDate}</p> 
+                  <p><span>Genre:</span>{movie.genre}</p> 
+                  <p><span>Plot:</span>{movie.plot}</p>
+                  <a target='_blank' href={movie.imdbLink}>whach the movie</a>
+                 <br/>
+                  <a target='_blank' href={movie.imdbLink}>
+                      <img width={"130"} height={"230"} src={movie.imgUrl} alt={movie.name}/>
+                      </a>
+              </div>
              
-             
-                        <a
-                        href={movie.trailerLink} Watch the movie trailer>
-                        </a>
-                        </div> 
-                        </div> 
-             )
-                  })}
-                        </div>
-
-                        
-    )
-                }
-      
-
-        export { Movies } ;
+          )
+      })}
+      </div>
+  )
+}
