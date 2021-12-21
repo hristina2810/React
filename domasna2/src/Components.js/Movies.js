@@ -1,5 +1,5 @@
 import React from 'react';
-import {App} from './Controlers/App'
+import {App} from './Components/App'
 
 
              
